@@ -24,6 +24,14 @@ export default function Home() {
                     Link to the Detail Page
                 </Typography>
             </Stack>
+            <Stack spacing={2} direction='column'>
+                <Button LinkComponent={Link} href='/nested' variant='contained'>
+                    Nested
+                </Button>
+                <Typography variant='button' display='block' gutterBottom>
+                    Link to the Nested Page
+                </Typography>
+            </Stack>
         </Stack>
     )
 }
