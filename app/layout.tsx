@@ -3,7 +3,10 @@ import SimpleContainer from './SimpleContainer'
 import TopBar from './TopBar'
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { ChildrenProps } from './types/ChildrenProps'
+import { ChildrenProps } from '../types/ChildrenProps'
+import type { Session } from "next-auth"
+import { AppProps } from 'next/app'
+import { SessionProvider } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,3 +28,4 @@ export default function RootLayout({ children }: ChildrenProps) {
         </html>
     )
 }
+

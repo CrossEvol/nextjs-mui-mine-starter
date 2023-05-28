@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper'
 import Grid from '@mui/material/Grid'
 import LeftMenus from './LeftMenus'
 import RightTabs from './RightContainer'
-import { ChildrenProps } from '../types/ChildrenProps'
+import { ChildrenProps } from '../../types/ChildrenProps'
 import RightContainer from './RightContainer'
 
 const Item = styled(Paper)(({ theme }) => ({

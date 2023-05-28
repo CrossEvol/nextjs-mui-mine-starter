@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { ChildrenProps } from '../types/ChildrenProps'
+import { ChildrenProps } from '../../types/ChildrenProps'
 import { CssBaseline, Container, Box } from '@mui/material'
 import MyGrid from './MyGrid'
 

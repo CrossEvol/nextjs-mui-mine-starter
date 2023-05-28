@@ -50,6 +50,18 @@ export default function TopBar() {
                     >
                         Photos
                     </Typography>
+                    <FormGroup>
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={auth}
+                            onChange={handleChange}
+                            aria-label='login switch'
+                        />
+                    }
+                    label={auth ? 'Logout' : 'Login'}
+                />
+            </FormGroup>
                     {auth && (
                         <div>
                             <IconButton
@@ -88,18 +100,7 @@ export default function TopBar() {
                     )}
                 </Toolbar>
             </AppBar>
-            <FormGroup>
-                <FormControlLabel
-                    control={
-                        <Switch
-                            checked={auth}
-                            onChange={handleChange}
-                            aria-label='login switch'
-                        />
-                    }
-                    label={auth ? 'Logout' : 'Login'}
-                />
-            </FormGroup>
+
         </Box>
     )
 }
