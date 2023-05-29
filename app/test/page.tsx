@@ -5,7 +5,7 @@ import SwiperCard from './SwiperCard'
 import CustomDialog from './CustomDialog'
 import { Button } from '@mui/material'
 import ClickableChips from './ClickableChips'
-import TestContext from './testContext'
+import TestContext from './TestContext'
 
 const Test = () => {
     const [open, setOpen] = React.useState(false)
