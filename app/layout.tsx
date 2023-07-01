@@ -4,7 +4,7 @@ import TopBar from './TopBar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { ChildrenProps } from '../types/ChildrenProps'
-import type { Session } from "next-auth"
+import type { Session } from 'next-auth'
 import { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 
@@ -28,4 +28,3 @@ export default function RootLayout({ children }: ChildrenProps) {
         </html>
     )
 }
-

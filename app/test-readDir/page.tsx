@@ -1,10 +1,9 @@
-// 'use client'
-
-import Link from 'next/link'
 import { readDir } from '@/lib/file'
+import Link from 'next/link'
+import React from 'react'
 
-export default async function Home() {
-    const dirItems = await readDir('./app', /app\\/)
+const page = async () => {
+    const dirItems = await readDir('./app/test-readDir', /app\\test\-readDir\\/)
     console.log(dirItems)
 
     return (
@@ -20,3 +19,5 @@ export default async function Home() {
         </div>
     )
 }
+
+export default page
