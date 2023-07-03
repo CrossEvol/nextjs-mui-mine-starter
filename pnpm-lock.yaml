@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@emotion/react': ^11.11.0
   '@emotion/styled': ^11.11.0
+  '@faker-js/faker': ^8.0.2
   '@hookform/resolvers': ^3.1.1
   '@mui/icons-material': ^5.11.16
   '@mui/material': ^5.13.2
@@ -32,6 +33,7 @@ specifiers:
 dependencies:
   '@emotion/react': 11.11.1_s3k22s5ab4eu26xuel7hiaraxy
   '@emotion/styled': 11.11.0_o33mozmalvjck4xgd65gutvo34
+  '@faker-js/faker': 8.0.2
   '@hookform/resolvers': 3.1.1_react-hook-form@7.45.1
   '@mui/icons-material': 5.11.16_2vbf6lp37zvc57zenhxfuqtl7a
   '@mui/material': 5.13.6_a546lfksfblnum6xd2xu2d7sbu
@@ -272,6 +274,11 @@ packages:
   /@eslint/js/8.40.0:
     resolution: {integrity: sha512-ElyB54bJIhXQYVKjDSvCkPO1iU1tSAeVQJbllWJq1XQSmmA4dgFk8CbiBGpiOPxleE48vDogxCtmMYku4HSVLA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: false
+
+  /@faker-js/faker/8.0.2:
+    resolution: {integrity: sha512-Uo3pGspElQW91PCvKSIAXoEgAUlRnH29sX2/p89kg7sP1m2PzCufHINd0FhTXQf6DYGiUlVncdSPa2F9wxed2A==}
+    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
     dev: false
 
   /@floating-ui/core/1.3.1:

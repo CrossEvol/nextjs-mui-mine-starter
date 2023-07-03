@@ -30,12 +30,12 @@ interface TodoItem {
 }
 
 export async function getTodos(): Promise<TodoItem[]> {
-    const response = await fetch('http://localhost:4000/todos')
+    const response = await fetch('http://localhost:3000/api/todos')
     return await response.json()
 }
 
 export async function postTodo(data: TodoItem) {
-    await fetch('http://localhost:4000/todos', {
+    await fetch('http://localhost:3000/api/todos', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export async function postTodo(data: TodoItem) {
 }
 
 export async function deleteTodo(id: number): Promise<void> {
-    await fetch(`http://localhost:4000/todos/${id}`, {
+    await fetch(`http://localhost:3000/api/todos/${id}`, {
         method: 'DELETE',
     })
 }
@@ -93,12 +93,6 @@ function Todos() {
         },
     })
 
-    useEffect(() => {
-        console.log(data)
-
-        return () => {}
-    }, [data])
-
     if (isLoading) {
         return (
             <Box display='flex' justifyContent='center' mt={4}>
@@ -119,10 +113,13 @@ function Todos() {
         deleteMutation.mutate(id)
     }
 
+    if (!data || data.length == 0) {
+        return null
+    }
     return (
         <StyledPaper>
             <List>
-                {data?.splice(0, 10).map((todo) => (
+                {(data.length > 10 ? data.splice(0, 10) : data).map((todo) => (
                     <ListItem key={todo.id} alignItems='flex-start'>
                         <ListItemText primary={todo.title} secondary={<></>} />
                         <ListItemSecondaryAction>
