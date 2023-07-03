@@ -29,6 +29,9 @@ const initTodos = () => {
     return todos
 }
 
-initTodos()
-
-export { todos }
+export const getTodos = async () => {
+    if (!todos || todos.length === 0) {
+        todos = initTodos()
+    }
+    return todos
+}

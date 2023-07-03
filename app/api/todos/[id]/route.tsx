@@ -1,5 +1,5 @@
+import { getTodos } from '@/lib/todos'
 import { NextResponse } from 'next/server'
-import { todos } from '../todos'
 
 type Identifier = string | number
 
@@ -12,6 +12,7 @@ export async function GET(
     { params }: { params: { id: Identifier } }
 ) {
     const id = params.id
+    const todos = await getTodos()
     const todoItem = todos.find((t) => t.id == id)
     return NextResponse.json({ todoItem })
 }
@@ -21,6 +22,7 @@ export async function DELETE(
     { params }: { params: { id: Identifier } }
 ) {
     const id = params.id
+    const todos = await getTodos()
     todos.splice(
         todos.findIndex((t) => t.id == id),
         1
