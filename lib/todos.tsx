@@ -1,13 +1,12 @@
 import { faker } from '@faker-js/faker'
+import { createClient } from 'redis'
 
-interface TodoItem {
+export type TodoItem  = {
     id: number
     title: string
 }
 
-let todos: TodoItem[]
-
-const initTodos = () => {
+const initTodos = async () => {
     const todos: any[] = []
     // Create 1000 todos
     for (let i = 1; i <= 12; i++) {
@@ -26,12 +25,26 @@ const initTodos = () => {
             assignee: faker.helpers.arrayElement(['king', 'queue', 'jack']),
         })
     }
-    return todos
+
+    await setTodos(todos)
 }
 
 export const getTodos = async () => {
-    if (!todos || todos.length === 0) {
-        todos = initTodos()
+    const client = createClient({ url: 'redis://8.134.187.237:6379' })
+    client.on('error', (err) => console.log('Redis Client Error', err))
+    await client.connect()
+    const todosStr = await client.get('todos')
+    if (todosStr === null || todosStr === '' || todosStr.length === 0) {
+        await initTodos()
     }
-    return todos
+    await client.disconnect()
+    return JSON.parse(todosStr as string)
+}
+
+export const setTodos = async (todos: TodoItem[]) => {
+    const client = createClient({ url: 'redis://8.134.187.237:6379' })
+    client.on('error', (err) => console.log('Redis Client Error', err))
+    await client.connect()
+    await client.set('todos', JSON.stringify(todos))
+    await client.disconnect()
 }
