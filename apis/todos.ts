@@ -5,7 +5,7 @@ import { queryClient } from './client'
 
 
 const fetchTodos = () => {
-    return fetch('http://localhost:5000/todos').then((res) => res.json())
+    return fetch('http://localhost:3000/api/todos').then((res) => res.json())
 }
 
 export const useQueryTodos = () => {
@@ -13,7 +13,7 @@ export const useQueryTodos = () => {
 }
 
 const delTodo = (id: number) => {
-    return fetch(`http://localhost:5000/todos/${id}`, {
+    return fetch(`http://localhost:3000/api/todos/${id}`, {
         method: 'DELETE',
     })
 }

@@ -1,7 +1,8 @@
+import { redisUrl } from '@/config/redis.config'
 import { faker } from '@faker-js/faker'
 import { createClient } from 'redis'
 
-export type TodoItem  = {
+export type TodoItem = {
     id: number
     title: string
 }
@@ -30,7 +31,7 @@ const initTodos = async () => {
 }
 
 export const getTodos = async () => {
-    const client = createClient({ url: 'redis://8.134.187.237:6379' })
+    const client = createClient({ url: redisUrl })
     client.on('error', (err) => console.log('Redis Client Error', err))
     await client.connect()
     const todosStr = await client.get('todos')
@@ -42,7 +43,7 @@ export const getTodos = async () => {
 }
 
 export const setTodos = async (todos: TodoItem[]) => {
-    const client = createClient({ url: 'redis://8.134.187.237:6379' })
+    const client = createClient({ url: redisUrl })
     client.on('error', (err) => console.log('Redis Client Error', err))
     await client.connect()
     await client.set('todos', JSON.stringify(todos))
