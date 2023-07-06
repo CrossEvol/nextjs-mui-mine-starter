@@ -340,7 +340,7 @@ export default function TodosMain({}: TodosMain) {
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage
             ),
-        [order, orderBy, page, rowsPerPage, rows.length,rows]
+        [order, orderBy, page, rowsPerPage,rows]
     )
 
     return (

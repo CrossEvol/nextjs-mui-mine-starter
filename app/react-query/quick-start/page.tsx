@@ -19,6 +19,7 @@ import {
     useQueryClient,
     QueryClient,
     QueryClientProvider,
+    QueryFunctionContext,
 } from '@tanstack/react-query'
 import React from 'react'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -29,12 +30,12 @@ interface TodoItem {
     title: string
 }
 
-export async function getTodos(): Promise<TodoItem[]> {
+export const getTodos = async () => {
     const response = await fetch('http://localhost:3000/api/todos')
     return await response.json()
 }
 
-export async function postTodo(data: TodoItem) {
+export const postTodo = async (data: TodoItem) => {
     await fetch('http://localhost:3000/api/todos', {
         method: 'POST',
         headers: {
@@ -44,7 +45,7 @@ export async function postTodo(data: TodoItem) {
     })
 }
 
-export async function deleteTodo(id: number): Promise<void> {
+export const deleteTodo = async (id: number) => {
     await fetch(`http://localhost:3000/api/todos/${id}`, {
         method: 'DELETE',
     })

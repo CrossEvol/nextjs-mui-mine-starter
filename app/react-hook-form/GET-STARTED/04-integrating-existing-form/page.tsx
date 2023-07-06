@@ -28,11 +28,7 @@ const Input = ({ label, register, required }: InputProps) => (
     </>
 )
 
-// you can use React.forwardRef to pass the ref too
-const Select = React.forwardRef<
-    HTMLSelectElement,
-    { label: string } & ReturnType<UseFormRegister<IFormValues>>
->(({ onChange, onBlur, name, label }, ref) => (
+const SelectOrigin = ({ onChange, onBlur, name, label }, ref) => (
     <>
         <label>{label}</label>
         <select name={name} ref={ref} onChange={onChange} onBlur={onBlur}>
@@ -40,7 +36,13 @@ const Select = React.forwardRef<
             <option value='30'>30</option>
         </select>
     </>
-))
+)
+
+// you can use React.forwardRef to pass the ref too
+const Select = React.forwardRef<
+    HTMLSelectElement,
+    { label: string } & ReturnType<UseFormRegister<IFormValues>>
+>(SelectOrigin)
 
 const App = () => {
     const { register, handleSubmit } = useForm<IFormValues>()

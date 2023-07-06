@@ -8,7 +8,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Button } from '@mui/material'
 
-export default () => {
+const App =  () => {
     return (
         <Swiper
             modules={[Pagination]}
@@ -38,3 +38,5 @@ export default () => {
         </Swiper>
     )
 }
+
+export default App

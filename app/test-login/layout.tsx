@@ -22,7 +22,7 @@ export const TestLoginContext = createContext<ContextProps>({
     updateData: (user: TestUser | null) => {},
 })
 
-const layout = ({ children }: ChildrenProps) => {
+const Layout = ({ children }: ChildrenProps) => {
     const [user, setUser] = useState<TestUser | null>(null)
 
     return (
@@ -46,4 +46,4 @@ const layout = ({ children }: ChildrenProps) => {
     )
 }
 
-export default layout
+export default Layout
