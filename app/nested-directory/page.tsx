@@ -2,7 +2,7 @@ import React from 'react'
 import NestedDir from './NestedDir'
 import { readDirRecursively } from '@/lib/file'
 
-const page = async () => {
+const Page = async () => {
     const dirItems = await readDirRecursively()
 
     return (
@@ -12,4 +12,4 @@ const page = async () => {
     )
 }
 
-export default page
+export default Page

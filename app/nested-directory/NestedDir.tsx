@@ -19,7 +19,7 @@ export const SubMenu = ({ dirItem }: SubMenuProps) => {
         console.log(dirItem.isLeaf)
 
         return () => {}
-    }, [])
+    }, [dirItem.isLeaf])
 
     if (isLeaf === false) {
         return (

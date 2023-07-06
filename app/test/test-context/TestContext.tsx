@@ -58,4 +58,4 @@ function Child() {
     )
 }
 
-export default () => <Ancestor />
+export default Ancestor

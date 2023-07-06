@@ -5,7 +5,7 @@ import LoginForm from './LoginForm'
 import { TestLoginContext } from './layout'
 import { Avatar, Button, Typography } from '@mui/material'
 
-const page = () => {
+const Page = () => {
     const { data, updateData } = useContext(TestLoginContext)
 
     useEffect(() => {
@@ -33,4 +33,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

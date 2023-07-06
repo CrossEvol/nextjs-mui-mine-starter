@@ -9,14 +9,16 @@ export default async function Home() {
 
     return (
         <div className='flex min-h-screen flex-col items-start  p-24 justify-start h'>
-            {dirItems.map((d) => (
-                <button
-                    key={d.id}
-                    className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-1 w-96'
-                >
-                    <Link href={d.path}>{d.title}</Link>
-                </button>
-            ))}
+            {dirItems
+                .filter((i) => i.title !== 'api')
+                .map((d) => (
+                    <button
+                        key={d.id}
+                        className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-1 w-96'
+                    >
+                        <Link href={d.path}>{d.title}</Link>
+                    </button>
+                ))}
         </div>
     )
 }

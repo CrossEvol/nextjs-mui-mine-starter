@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
-import { getCaptcha, loginByPwd, useQueryCaptcha } from '@/apis/auth'
+import { getCaptcha, loginByPwd, useQueryCaptcha } from '@/lib/auth'
 import { queryClient } from '@/apis/client'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
@@ -39,7 +39,8 @@ function UsernameLoginForm() {
         const captcha = getValues('captcha')
         const userKey = await loginByPwd(account, password, captcha)
         Cookies.set('user-key', userKey)
-        router.back()
+        router.push('/login/success')
+        // router.back()
     }
 
     const handleClickCaptcha = () => {
@@ -113,13 +114,13 @@ function UsernameLoginForm() {
                 }}
             />
             <Button
-                variant='contained'
+                variant='outlined'
                 color='primary'
                 type='submit'
                 fullWidth
                 size='large'
             >
-                登录
+                登 录
             </Button>
         </form>
     )

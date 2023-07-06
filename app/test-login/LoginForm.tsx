@@ -21,18 +21,19 @@ function LoginForm() {
         const username = getValues('username')
         const password = getValues('password')
         console.log('getValues => ', JSON.stringify({ username, password }))
-        const res = await axios.post('http://localhost:8000/login', {
+        const res = await axios.post('http://localhost:3000/api/auth/login', {
             username,
             password,
         })
         console.log(res.data)
-        updateData(res.data)
+        updateData(res.data.data)
     }
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <Typography variant='h6'>Login</Typography>
             <TextField
+                sx={{ m: 3 }}
                 {...register('username')}
                 label='Username'
                 error={!!errors.username}
@@ -40,6 +41,7 @@ function LoginForm() {
             />
             <br />
             <TextField
+                sx={{ m: 3 }}
                 {...register('password')}
                 label='Password'
                 type='password'
@@ -47,7 +49,7 @@ function LoginForm() {
                 helperText={errors.password?.message}
             />
             <br />
-            <Button type='submit' color='primary' variant='contained'>
+            <Button type='submit' color='primary' variant='outlined'>
                 Submit
             </Button>
         </form>

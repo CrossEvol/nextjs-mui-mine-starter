@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { TextField, Button, InputAdornment } from '@mui/material'
-import { useQuery } from 'react-query'
-import { loginBySms, sendSmsCode } from '@/apis/auth'
+import { useQuery } from '@tanstack/react-query'
+import { loginBySms, sendSmsCode } from '@/lib/auth'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 
@@ -26,7 +26,8 @@ const SmsLoginForm = () => {
         const code = getValues('code')
         const userKey = await loginBySms(phone, code)
         Cookies.set('user-key', userKey)
-        router.back()
+        router.push('/login/success')
+        // router.back()
     }
 
     const handleSendCode = async () => {
@@ -68,8 +69,8 @@ const SmsLoginForm = () => {
                 error={!!errors.code}
                 helperText={errors.code ? '验证码不能为空' : ''}
             />
-            <Button variant='contained' fullWidth size='large' type='submit'>
-                Contained
+            <Button variant='outlined' fullWidth size='large' type='submit'>
+                注 册
             </Button>
         </form>
     )

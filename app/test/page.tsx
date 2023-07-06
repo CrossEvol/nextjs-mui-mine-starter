@@ -1,33 +1,23 @@
-'use client'
-
+import { readDir } from '@/lib/file'
+import Link from 'next/link'
 import React from 'react'
-import SwiperCard from './SwiperCard'
-import CustomDialog from './CustomDialog'
-import { Button } from '@mui/material'
-import ClickableChips from './ClickableChips'
-import TestContext from './TestContext'
 
-const Test = () => {
-    const [open, setOpen] = React.useState(false)
+const Page =async () => {
+  const dirItems = await readDir('./app/test', /app\\test\\/)
+  console.log(dirItems)
 
-    const handleClickOpen = () => {
-        setOpen(true)
-    }
-    const handleClose = () => {
-        setOpen(false)
-    }
-
-    return (
-        <>
-            {/* <SwiperCard /> */}
-            {/* <Button variant='outlined' onClick={handleClickOpen}>
-                Open dialog
-            </Button>
-            <CustomDialog open={open} handleClose={handleClose}/> */}
-            {/* <ClickableChips /> */}
-            <TestContext />
-        </>
-    )
+  return (
+      <div className='flex min-h-screen flex-col items-start  p-24 justify-start h'>
+          {dirItems.map((d) => (
+              <button
+                  key={d.id}
+                  className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-1 w-96'
+              >
+                  <Link href={d.path}>{d.title}</Link>
+              </button>
+          ))}
+      </div>
+  )
 }
 
-export default Test
+export default Page

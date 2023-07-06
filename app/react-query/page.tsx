@@ -2,7 +2,7 @@ import { readDir } from '@/lib/file'
 import Link from 'next/link'
 import React from 'react'
 
-const page =async () => {
+const Page =async () => {
   const dirItems = await readDir('./app/react-query', /app\\react\-query\\/)
   console.log(dirItems)
 
@@ -20,4 +20,4 @@ const page =async () => {
   )
 }
 
-export default page
+export default Page

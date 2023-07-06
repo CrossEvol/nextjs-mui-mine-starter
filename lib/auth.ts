@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { queryClient } from './client'
+import { queryClient } from '../apis/client'
 
 export const sendSmsCode = (phone: string) => {
     return fetch(`http://localhost:8000/mobile-user/send-code?phone=${phone}`, {
@@ -14,12 +14,13 @@ export const sendSmsCode = (phone: string) => {
 
 export const loginBySms = async (phone: string, code: string) => {
     const res = await axios.post(
-        'http://localhost:8000/mobile-user/login-sms',
+        'http://localhost:3000/api/auth/login-sms',
         {
             phone,
             code,
         }
     )
+    console.log('loginBySms::',res)
     return res.data.data.userKey
 }
 
@@ -29,18 +30,19 @@ export const loginByPwd = async (
     captcha: string
 ) => {
     const res = await axios.post(
-        'http://localhost:8000/mobile-user/login-pwd',
+        'http://localhost:3000/api/auth/login-pwd',
         {
             account,
             password,
             captcha,
         }
     )
+    console.log('loginByPwd::',res)
     return res.data.data.userKey
 }
 
 export const getCaptcha = () => {
-    return fetch(`http://localhost:8000/mobile-user/captcha`, {
+    return fetch(`http://localhost:3000/api/captcha`, {
         method: 'GET',
     }).then((res) => res.json())
 }
@@ -53,7 +55,7 @@ export const useQueryCaptcha = () => {
 export const logout = async () => {
     const userKey = Cookies.get('user-key')
     console.log(userKey)
-    return fetch('http://localhost:8000/mobile-user/logout', {
+    return fetch('http://localhost:3000/api/auth/logout', {
         credentials: 'include',
         headers: {
             Cookie: 'user-key=' + userKey,

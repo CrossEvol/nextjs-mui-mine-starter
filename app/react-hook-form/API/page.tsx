@@ -2,7 +2,7 @@ import { readDir } from '@/lib/file'
 import Link from 'next/link'
 import React from 'react'
 
-const page = async () => {
+const Page = async () => {
     const dirItems = await readDir(
         './app/react-hook-form/API',
         /app\\react\-hook\-form\\API\\/
@@ -23,4 +23,4 @@ const page = async () => {
     )
 }
 
-export default page
+export default Page

@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 export const getUserInfo = async () => {
     const userKey = Cookies.get('user-key')
     console.log(userKey)
-    return fetch('http://localhost:8000/mobile-user', {
+    return fetch('http://localhost:3000/api/auth/profile', {
         credentials: 'include',
         headers: {
             Cookie: 'user-key=' + userKey,
