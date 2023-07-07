@@ -22,7 +22,7 @@ import Switch from '@mui/material/Switch'
 import DeleteIcon from '@mui/icons-material/Delete'
 import FilterListIcon from '@mui/icons-material/FilterList'
 import { visuallyHidden } from '@mui/utils'
-import { useDelTodo, useQueryTodos } from '@/apis/todos'
+import { useDelTodo, useQueryTodos } from '@/lib/todos4Client'
 import { TodosContext } from './Todos'
 
 interface Data {

@@ -3,7 +3,7 @@
 import React from 'react'
 import Todos from './Todos'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from '@/apis/client'
+import { queryClient } from '@/lib/client'
 
 const Page = () => {
     return (

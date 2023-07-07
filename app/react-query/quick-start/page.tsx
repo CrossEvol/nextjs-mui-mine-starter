@@ -136,7 +136,21 @@ function Todos() {
                 ))}
             </List>
             <Button
-                variant='contained'
+                variant='outlined'
+                color='secondary'
+                onClick={() => {
+                    addMutation.mutate({
+                        id: Date.now(),
+                        title:
+                            Number(Date.now()).toString(36) +
+                            Number(Math.random()).toString(36),
+                    })
+                }}
+            >
+                Add Todo
+            </Button>
+            <Button
+                variant='outlined'
                 color='secondary'
                 onClick={() => {
                     addMutation.mutate({

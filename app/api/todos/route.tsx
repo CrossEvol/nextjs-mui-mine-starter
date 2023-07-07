@@ -1,4 +1,4 @@
-import { getTodos, setTodos } from '@/lib/todos'
+import { getTodos, setTodos } from '@/lib/todos4Server'
 import { faker } from '@faker-js/faker'
 import { NextResponse } from 'next/server'
 

@@ -1,4 +1,4 @@
-import { useDelTodo, useQueryTodos } from '@/apis/todos'
+import { useDelTodo, useQueryTodos } from '@/lib/todos4Client'
 import { Todo } from '@/types/todos'
 import { Box } from '@mui/material'
 

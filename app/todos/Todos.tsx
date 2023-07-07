@@ -3,7 +3,7 @@
 import React, { createContext } from 'react'
 import TodosMain from './TodosMain'
 import TodosQuery from './TodosQuery'
-import { useQueryTodos } from '@/apis/todos'
+import { useQueryTodos } from '@/lib/todos4Client'
 import { Todo } from '@/types/todos'
 
 type TodosContext = {
