@@ -1,11 +1,12 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import { useQuery } from '@tanstack/react-query'
+import { mockApiUrl } from '@/config/url.config'
 
 export const getUserInfo = async () => {
     const userKey = Cookies.get('user-key')
     console.log(userKey)
-    return fetch('http://localhost:3000/api/auth/profile', {
+    return fetch(`${mockApiUrl}/auth/profile`, {
         credentials: 'include',
         headers: {
             Cookie: 'user-key=' + userKey,
