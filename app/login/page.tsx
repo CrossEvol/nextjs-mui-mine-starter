@@ -11,8 +11,8 @@ import {
 import React from 'react'
 import LoginTabs from './LoginTabs'
 import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClient } from '@/apis/client'
 import LoginContainer from './LoginContainer'
+import { queryClient } from '@/lib/client'
 
 const Login = () => {
     return (

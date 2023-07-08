@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { queryClient } from '../apis/client'
+import { queryClient } from './client'
 
 export const sendSmsCode = (phone: string) => {
     return fetch(`http://localhost:8000/mobile-user/send-code?phone=${phone}`, {
@@ -42,7 +42,7 @@ export const loginByPwd = async (
 }
 
 export const getCaptcha = () => {
-    return fetch(`http://localhost:3000/api/captcha`, {
+    return fetch(`http://localhost:3000/api/auth/captcha`, {
         method: 'GET',
     }).then((res) => res.json())
 }

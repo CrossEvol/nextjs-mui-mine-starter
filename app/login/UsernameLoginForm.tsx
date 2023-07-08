@@ -11,9 +11,9 @@ import {
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 import { getCaptcha, loginByPwd, useQueryCaptcha } from '@/lib/auth'
-import { queryClient } from '@/apis/client'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import { queryClient } from '@/lib/client'
 
 type FormInputs = {
     account: string
