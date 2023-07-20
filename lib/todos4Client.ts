@@ -1,11 +1,10 @@
 import { Todo } from '@/types/todos'
 import { QueryClient, useMutation, useQuery } from '@tanstack/react-query'
 import { queryClient } from './client'
-
-
+import { mockApiUrl } from '@/config/url.config'
 
 const fetchTodos = () => {
-    return fetch('http://localhost:3000/api/todos').then((res) => res.json())
+    return fetch(`${mockApiUrl}/todos`).then((res) => res.json())
 }
 
 export const useQueryTodos = () => {
@@ -13,7 +12,7 @@ export const useQueryTodos = () => {
 }
 
 const delTodo = (id: number) => {
-    return fetch(`http://localhost:3000/api/todos/${id}`, {
+    return fetch(`${mockApiUrl}/todos/${id}`, {
         method: 'DELETE',
     })
 }
