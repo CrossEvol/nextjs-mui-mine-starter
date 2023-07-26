@@ -49,7 +49,7 @@ function LoginForm() {
                 helperText={errors.password?.message}
             />
             <br />
-            <Button type='submit' color='primary' variant='outlined'>
+            <Button type='submit' color='primary' variant='contained'>
                 Submit
             </Button>
         </form>

@@ -11,7 +11,7 @@ module.exports = {
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  important: '#root',
+  // important: '#root',
   theme: {
     extend: {},
   },

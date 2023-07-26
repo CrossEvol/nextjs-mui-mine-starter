@@ -20,8 +20,8 @@ const Page = () => {
                     登录成功
                 </Typography>
                 <Avatar alt='Remy Sharp' src={data?.avatar} />
-                <Button variant='outlined' onClick={() => updateData(null)}>
-                    Outlined
+                <Button variant='contained' onClick={() => updateData(null)}>
+                    登 出
                 </Button>
             </>
         )
