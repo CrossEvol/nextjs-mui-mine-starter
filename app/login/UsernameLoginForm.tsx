@@ -114,7 +114,7 @@ function UsernameLoginForm() {
                 }}
             />
             <Button
-                variant='outlined'
+                variant='contained'
                 color='primary'
                 type='submit'
                 fullWidth

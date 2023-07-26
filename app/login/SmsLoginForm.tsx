@@ -69,7 +69,7 @@ const SmsLoginForm = () => {
                 error={!!errors.code}
                 helperText={errors.code ? '验证码不能为空' : ''}
             />
-            <Button variant='outlined' fullWidth size='large' type='submit'>
+            <Button variant='contained' fullWidth size='large' type='submit'>
                 注 册
             </Button>
         </form>
