@@ -1,5 +1,4 @@
 import svgCaptcha from '@/lib/svg-captcha'
-import { faker } from '@faker-js/faker'
 import { NextResponse } from 'next/server'
 // import * as  svgCaptcha from 'svg-captcha'
 

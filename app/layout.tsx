@@ -1,15 +1,12 @@
 'use client'
 
+import { StyledEngineProvider } from '@mui/material'
+import { Inter } from 'next/font/google'
+import { ChildrenProps } from '../types/ChildrenProps'
 import BottomBar from './BottomBar'
 import SimpleContainer from './SimpleContainer'
 import TopBar from './TopBar'
 import './globals.css'
-import { Inter } from 'next/font/google'
-import { ChildrenProps } from '../types/ChildrenProps'
-import type { Session } from 'next-auth'
-import { AppProps } from 'next/app'
-import { SessionProvider } from 'next-auth/react'
-import { StyledEngineProvider } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 

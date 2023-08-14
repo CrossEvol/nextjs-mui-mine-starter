@@ -1,7 +1,7 @@
 // 'use client'
 
-import Link from 'next/link'
 import { readDir } from '@/lib/file'
+import Link from 'next/link'
 
 export default async function Home() {
     const dirItems = await readDir('./app', /app\\/)
