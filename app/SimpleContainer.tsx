@@ -16,8 +16,7 @@ export default function SimpleContainer({ children }: ChildrenProps) {
             >
                 <Box
                     sx={{
-                        bgcolor: '#cfe8fc',
-                        height: '100vh',
+                        height: '100%',
                         position: 'relative',
                     }}
                 >
