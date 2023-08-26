@@ -1,30 +1,31 @@
 'use client'
 
-import React, { useEffect } from 'react'
-import Cookies from 'js-cookie'
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { logout } from '@/lib/auth'
+import { UserContext } from '../layout'
 
 interface Props {}
 
 const LoginSuccess = ({}: Props) => {
     const router = useRouter()
-    const userKey = Cookies.get('user-key')
+    const { user, setUser } = useContext(UserContext)
 
-    if (userKey) {
+    if (user) {
         return (
-            <div>
+            <div className='w-full'>
                 <Stack spacing={2} direction='column'>
                     <Typography variant='button' display='block' gutterBottom>
-                        {userKey}
+                        {user.username}
                     </Typography>
                     <Button
                         variant='outlined'
                         onClick={() => {
                             logout()
-                            router.refresh()
+                            setUser(undefined)
                         }}
+                        fullWidth
                     >
                         登 出
                     </Button>
@@ -34,14 +35,15 @@ const LoginSuccess = ({}: Props) => {
     }
 
     return (
-        <div>
+        <div className='w-full'>
             <Stack spacing={2} direction='column'>
                 <Typography variant='button' display='block' gutterBottom>
-                    userKey 为空, 用户未登录
+                    您尚未登录
                 </Typography>
                 <Button
                     variant='outlined'
-                    onClick={() => router.push('/login')}
+                    onClick={() => router.push('/auth/sign-in')}
+                    fullWidth
                 >
                     去登录
                 </Button>

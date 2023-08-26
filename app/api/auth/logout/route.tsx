@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
     const data = {
-        userKey: faker.string.alphanumeric(10),
+       message:'LOGOUT'
     }
 
     return NextResponse.json({ data })
