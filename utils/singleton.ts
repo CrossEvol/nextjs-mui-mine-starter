@@ -1,17 +1,19 @@
 export const singleton = () => {
-  let instance: any = {}
+    let instance: any
 
-  function createInstance() {
-    if (!instance) {
-      instance = {
-        name: '小明',
-        anomyMethods: function () {},
-      }
+    function createInstance() {
+        if (!instance) {
+            instance = {
+                name: '小明',
+                anomyMethods: function () {},
+            }
+        }
+        return instance
     }
-    return instance
-  }
 
-  return {
-    getInstance: createInstance,
-  }
+    return {
+        getInstance: createInstance,
+    }
 }
+
+
