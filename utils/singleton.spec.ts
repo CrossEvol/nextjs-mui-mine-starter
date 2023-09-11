@@ -1,18 +1,14 @@
-import {singleton} from './singleton'
+import { isEqual } from 'lodash'
+import { Singleton } from './singleton'
 
 describe('SingletonTests', () => {
-  it('should declare singleton', () => {
-    const single = singleton()
-
-    const instance1 = single.getInstance()
-    const instance2 = single.getInstance()
-
-    const name = '欧阳锋'
-
-    instance1.name = name
-
-    expect(instance1).toEqual(instance2)
-    expect(instance1.name).toBe(name)
-    expect(instance2.name).toBe(name)
+  it('should singleton', () => {
+    const instance1 = Singleton.getInstance()
+    const instance2 = Singleton.getInstance()
+    instance1.list.push('a')
+    instance1.obj = { a: '1', b: '2' }
+    expect(isEqual(instance1, instance2)).toBeTruthy()
+    expect(isEqual(instance1.list, instance2.list)).toBeTruthy()
+    expect(isEqual(instance1.obj, instance2.obj)).toBeTruthy()
   })
 })

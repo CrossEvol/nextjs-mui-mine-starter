@@ -1,19 +1,21 @@
-export const singleton = () => {
-    let instance: any
+class Singleton {
+  list: string[]
+  obj: Object
 
-    function createInstance() {
-        if (!instance) {
-            instance = {
-                name: '小明',
-                anomyMethods: function () {},
-            }
-        }
-        return instance
-    }
+  private static singleton: Singleton
 
-    return {
-        getInstance: createInstance,
+  private constructor() {
+    this.list = []
+    this.obj = {}
+  }
+
+  public static getInstance(): Singleton {
+    if (!Singleton.singleton) {
+      Singleton.singleton = new Singleton()
     }
+    return Singleton.singleton
+  }
 }
 
+export { Singleton }
 

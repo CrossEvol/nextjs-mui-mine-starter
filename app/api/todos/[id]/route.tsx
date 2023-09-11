@@ -1,5 +1,13 @@
-import { TodoItem, getTodos, setTodos } from '@/lib/todos4Server'
+import {
+    TodoItem,
+    TodoStore,
+    delTodoItem,
+    getTodos,
+    setTodos,
+} from '@/lib/todos4Server'
 import { NextResponse } from 'next/server'
+import { parse } from 'node:path/win32'
+import { string } from 'yup'
 
 type Identifier = string | number
 
@@ -19,14 +27,19 @@ export async function GET(
 
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: Identifier } }
+    { params }: { params: { id: string } }
 ) {
     const id = params.id
+    // const todos = await getTodos()
+    // todos.splice(
+    //     todos.findIndex((t: TodoItem) => t.id == id),
+    //     1
+    // )
+    // await setTodos(todos)
+    console.log(id)
+    console.log(typeof id)
+    const todo_id = Number(id)
+    await delTodoItem(todo_id)
     const todos = await getTodos()
-    todos.splice(
-        todos.findIndex((t: TodoItem) => t.id == id),
-        1
-    )
-    await setTodos(todos)
     return NextResponse.json({ count: todos.length })
 }
