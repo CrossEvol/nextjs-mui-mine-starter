@@ -1,5 +1,6 @@
 'use client'
 
+import DeleteIcon from '@mui/icons-material/Delete'
 import {
     Box,
     Button,
@@ -14,18 +15,14 @@ import {
     styled,
 } from '@mui/material'
 import {
-    useQuery,
-    useMutation,
-    useQueryClient,
     QueryClient,
     QueryClientProvider,
-    QueryFunctionContext,
+    useMutation,
+    useQuery,
+    useQueryClient,
 } from '@tanstack/react-query'
-import React from 'react'
-import DeleteIcon from '@mui/icons-material/Delete'
-import { useEffect } from 'react'
 
-interface TodoItem {
+type TodoItem = {
     id: number
     title: string
 }
@@ -46,7 +43,7 @@ export const postTodo = async (data: TodoItem) => {
 }
 
 export const deleteTodo = async (id: number) => {
-    await fetch(`http://localhost:3000/api/todos/${id}`, {
+    await fetch(`http://localhost:3000/api/todos?id=${id}`, {
         method: 'DELETE',
     })
 }
@@ -73,7 +70,7 @@ function Todos() {
     const queryClient = useQueryClient()
 
     // Queries
-    const { isLoading, error, data } = useQuery({
+    const { isLoading, error, data } = useQuery<TodoItem[], Error>({
         queryKey: ['todos'],
         queryFn: getTodos,
     })

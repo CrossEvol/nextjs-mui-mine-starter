@@ -1,6 +1,13 @@
-import { addTodoItem, getTodos, setTodos } from '@/lib/todos4Server'
+import {
+    TodoItem,
+    addTodoItem,
+    delTodoItem,
+    getTodos,
+} from '@/lib/todos4Server'
 import { faker } from '@faker-js/faker'
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+
+// Todo.TodoStore.getInstance()
 
 export async function GET() {
     const todos = await getTodos()
@@ -11,10 +18,12 @@ export async function POST(request: Request) {
     const res = await request.json()
     await addTodoItem(res)
     return NextResponse.json({ res })
+}
 
-    // const res = await request.json()
-    // const todos = await getTodos()
-    // todos.push(res)
-    // await setTodos(todos)
-    // return NextResponse.json({ res })
+export async function DELETE(request: NextRequest) {
+    const id = request.nextUrl.searchParams.get('id')
+    console.log(id)
+    await delTodoItem(Number(id))
+    const todos = await getTodos()
+    return NextResponse.json({ count: todos.length })
 }

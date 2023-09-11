@@ -1,1 +1,0 @@
-export const redisUrl = 'redis://8.134.187.237:6379'
