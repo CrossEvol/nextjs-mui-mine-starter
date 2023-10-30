@@ -1,6 +1,11 @@
 import axios, { InternalAxiosRequestConfig } from 'axios'
 
-import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import type {
+    AxiosError,
+    AxiosInstance,
+    AxiosRequestConfig,
+    AxiosResponse,
+} from 'axios'
 
 export type Result<T> = {
     code: number
@@ -28,12 +33,16 @@ export class Request {
 
         this.instance.interceptors.request.use(
             (config: InternalAxiosRequestConfig) => {
-                // 一般会请求拦截里面加token，用于后端的验证
+                if (
+                    typeof window !== 'undefined' &&
+                    typeof document !== 'undefined'
+                ) {
+                    // 一般会请求拦截里面加token，用于后端的验证
+                    const token = localStorage.getItem('token') as string
 
-                const token = localStorage.getItem('token') as string
-
-                if (token) {
-                    config.headers!.Authorization = token
+                    if (token) {
+                        config.headers!.Authorization = token
+                    }
                 }
 
                 return config
@@ -55,12 +64,12 @@ export class Request {
                 return res
             },
 
-            (err: any) => {
+            (err: AxiosError) => {
                 // 这里用来处理http常见错误，进行全局提示
 
                 let message = ''
 
-                switch (err.response.status) {
+                switch (err.response!.status) {
                     case 400:
                         message = '请求错误(400)'
 
@@ -119,7 +128,7 @@ export class Request {
                         break
 
                     default:
-                        message = `连接出错(${err.response.status})!`
+                        message = `连接出错(${err.response!.status})!`
                 }
 
                 // 这里错误消息可以使用全局弹框展示出来
