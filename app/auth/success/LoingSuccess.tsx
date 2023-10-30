@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Button, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
-import { logout } from '@/lib/auth'
+import { logout } from '@/web/auth'
 import { UserContext } from '../layout'
 
 interface Props {}

@@ -1,5 +1,5 @@
+import { Singleton } from '@/utils/singleton'
 import { isEqual } from 'lodash'
-import { Singleton } from './singleton'
 
 describe('SingletonTests', () => {
   it('should singleton', () => {

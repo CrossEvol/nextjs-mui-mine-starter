@@ -3,7 +3,7 @@ import {
     addTodoItem,
     delTodoItem,
     getTodos,
-} from '@/lib/todos4Server'
+} from '@/web/todos4Server'
 import { faker } from '@faker-js/faker'
 import { NextRequest, NextResponse } from 'next/server'
 

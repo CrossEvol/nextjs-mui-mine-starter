@@ -1,6 +1,6 @@
 // 'use client'
 
-import { readDir } from '@/lib/file'
+import { readDir } from '@/web/file'
 import Link from 'next/link'
 
 export default async function Home() {

@@ -1,4 +1,4 @@
-import { readDir } from '@/lib/file'
+import { readDir } from '@/web/file'
 import Link from 'next/link'
 import React from 'react'
 
