@@ -1,5 +1,7 @@
 
 
+# 问题
+
 ### 运行出现的问题
 
 #### 按钮显示错误
@@ -148,5 +150,63 @@ export default imageData
 <img alt="0image" loading="lazy" decoding="async" data-nimg="1" class="w-125 h-125 bg-cover" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=3840&amp;q=75 3840w" src="/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1599394022918-6c2776530abb%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26auto%3Dformat%26fit%3Dcrop%26w%3D1458%26q%3D80&amp;w=3840&amp;q=75" style="">
 ```
 
+# 更新
 
+## 2023/10/30
 
+### Supplement the request.spec.ts
+
+- test needs the open api from 'https://jsonplaceholder.typicode.com/albums'
+
+- the request interceptor should operate based on the container is browser or not 
+
+  
+
+### jest-dom & msw
+
+#### replace the jest.config.js 
+
+```js
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: './',
+})
+
+// Add any custom config to be passed to Jest
+const customJestConfig = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testEnvironment: 'jest-environment-jsdom',
+}
+
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+module.exports = createJestConfig(customJestConfig)
+
+```
+
+#### init the jest.setup.js
+
+```js
+// Learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+import 'whatwg-fetch'
+import { TextEncoder } from 'util';
+
+global.TextEncoder = TextEncoder;
+
+```
+
+#### install packages 
+
+`pnpm i jest-environment-jsdom @testing-library/jest-dom @testing-library/user-event msw@1.3.2  whatwg-fetch`
+
+#### write demos based on the document 
+
+url : `https://www.npmjs.com/search?q=%40testing-library%20`
+
+@testing-library/react : `https://www.npmjs.com/package/@testing-library/react`
+
+@testing-library/jest-dom: `https://www.npmjs.com/package/@testing-library/jest-dom`
+
+@testing-library/user-event: `https://www.npmjs.com/package/@testing-library/user-event`
