@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "serve":"json-server ./mock/todos.js --port=4000 --middlewares ./mock/middleware.js",
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
@@ -31,6 +32,7 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "js-cookie": "^3.0.5",
+    "json-server": "^0.17.4",
     "lodash": "^4.17.21",
     "next": "13.4.2",
     "react": "18.2.0",
