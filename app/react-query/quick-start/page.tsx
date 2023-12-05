@@ -28,12 +28,12 @@ type TodoItem = {
 }
 
 export const getTodos = async () => {
-    const response = await fetch('http://localhost:3000/api/todos')
+    const response = await fetch('http://localhost:4000/todos')
     return await response.json()
 }
 
 export const postTodo = async (data: TodoItem) => {
-    await fetch('http://localhost:3000/api/todos', {
+    await fetch('http://localhost:4000/todos', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export const postTodo = async (data: TodoItem) => {
 }
 
 export const deleteTodo = async (id: number) => {
-    await fetch(`http://localhost:3000/api/todos?id=${id}`, {
+    await fetch(`http://localhost:4000/todos/${id}`, {
         method: 'DELETE',
     })
 }
