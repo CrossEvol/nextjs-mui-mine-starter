@@ -12,10 +12,11 @@ import Paper from '@mui/material/Paper'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
+import { useRouter } from 'next/navigation'
 import * as React from 'react'
 import { useContext } from 'react'
 import { UserContext } from '../layout'
-import { useRouter } from 'next/navigation'
+import { z } from 'zod'
 
 function Copyright(props: any) {
     return (
@@ -52,9 +53,20 @@ export default function SignInSide() {
         const res = await (
             await fetch(`${mockApiUrl}/auth/login`, { method: 'POST' })
         ).json()
-        debugger
-        setUser(res.data)
-        setTimeout(() => router.push('/auth/success'))
+        const userSchema = z.object({
+            data: z.object({
+                id: z.number(),
+                username: z.string(),
+                avatar: z.string(),
+            }),
+        })
+        const safeParse = userSchema.safeParse(res)
+        if (safeParse.success) {
+            setUser(res.data)
+        } else {
+            console.log(safeParse.error)
+        }
+        router.push('/auth/success')
     }
 
     return (

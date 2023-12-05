@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import { logout } from '@/web/auth'
 import { Button, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
-import { logout } from '@/web/auth'
+import { useContext } from 'react'
 import { UserContext } from '../layout'
 
 interface Props {}
@@ -11,7 +11,7 @@ interface Props {}
 const LoginSuccess = ({}: Props) => {
     const router = useRouter()
     const { user, setUser } = useContext(UserContext)
-
+    
     if (user) {
         return (
             <div className='w-full'>
