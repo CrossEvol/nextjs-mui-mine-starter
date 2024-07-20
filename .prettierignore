@@ -1,0 +1,8 @@
+# Ignore artifacts:
+.next
+.swc
+.vscode
+__test__
+
+# Ignore all HTML files:
+**/*.html
