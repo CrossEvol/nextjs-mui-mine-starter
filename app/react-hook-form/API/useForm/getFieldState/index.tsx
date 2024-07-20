@@ -1,9 +1,7 @@
 import React from 'react'
 
 const getFieldState = () => {
-  return (
-    <div>getFieldState</div>
-  )
+  return <div>getFieldState</div>
 }
 
 export default getFieldState

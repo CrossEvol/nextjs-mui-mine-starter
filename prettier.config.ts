@@ -2,8 +2,9 @@
 const config = {
   plugins: ["prettier-plugin-tailwindcss"],
   semi: false,
-  singleQuote: false,
-  trailingComma: all,
+  singleQuote: true,
+  jsxSingleQuote: true,
+  bracketSameLine:true,
 };
 
 export default config;

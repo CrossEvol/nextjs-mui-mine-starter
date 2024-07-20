@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FieldARRAY = () => {
-    return <div>FieldARRAY</div>
+  return <div>FieldARRAY</div>
 }
 
 export default FieldARRAY

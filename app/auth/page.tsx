@@ -4,13 +4,13 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Page = () => {
-    const router = useRouter()
-    React.useEffect(() => {
-        router.push('/auth/sign-in')
-        return () => {}
-    }, [])
+  const router = useRouter()
+  React.useEffect(() => {
+    router.push('/auth/sign-in')
+    return () => {}
+  }, [])
 
-    return null
+  return null
 }
 
 export default Page

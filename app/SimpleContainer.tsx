@@ -7,22 +7,20 @@ import Container from '@mui/material/Container'
 import { ChildrenProps } from '../types/ChildrenProps'
 
 export default function SimpleContainer({ children }: ChildrenProps) {
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container
-                maxWidth='xl'
-                sx={{ position: 'relative', overflow: 'hidden' }}
-            >
-                <Box
-                    sx={{
-                        height: '100%',
-                        position: 'relative',
-                    }}
-                >
-                    {children}
-                </Box>
-            </Container>
-        </React.Fragment>
-    )
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <Container
+        maxWidth='xl'
+        sx={{ position: 'relative', overflow: 'hidden' }}>
+        <Box
+          sx={{
+            height: '100%',
+            position: 'relative',
+          }}>
+          {children}
+        </Box>
+      </Container>
+    </React.Fragment>
+  )
 }

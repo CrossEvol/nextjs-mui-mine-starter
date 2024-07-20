@@ -3,11 +3,11 @@
 import SignUp from './SignUp'
 
 const Page = () => {
-    return (
-        <>
-            <SignUp />
-        </>
-    )
+  return (
+    <>
+      <SignUp />
+    </>
+  )
 }
 
 export default Page

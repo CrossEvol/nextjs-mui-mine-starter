@@ -3,12 +3,11 @@
 import LoginSuccess from './LoginSuccess'
 
 const Page = () => {
-
-    return (
-        <>
-            <LoginSuccess />
-        </>
-    )
+  return (
+    <>
+      <LoginSuccess />
+    </>
+  )
 }
 
 export default Page
