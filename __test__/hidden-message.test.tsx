@@ -1,4 +1,4 @@
-import HiddenMessage from '@/app/test/_testing_library/HiddenMessage'
+import HiddenMessage from '@/app/test/_testing_library/hidden-message'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 describe('HiddenMessageTest', () => {

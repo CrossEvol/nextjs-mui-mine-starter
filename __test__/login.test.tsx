@@ -6,8 +6,8 @@ import '@testing-library/jest-dom'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 // import testing utilities
-import Login from '@/app/test/_testing_library/Login'
 import { fireEvent, render, screen } from '@testing-library/react'
+import Login from '@/app/test/_testing_library/Login'
 
 const fakeUserResponse = { token: 'fake_user_token' }
 const server = setupServer(
