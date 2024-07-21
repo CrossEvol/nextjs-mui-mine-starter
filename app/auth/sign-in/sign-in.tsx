@@ -1,4 +1,3 @@
-import { mockApiUrl } from '@/config/url.config'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Avatar from '@mui/material/Avatar'
 import Box from '@mui/material/Box'
@@ -17,6 +16,7 @@ import * as React from 'react'
 import { useContext } from 'react'
 import { z } from 'zod'
 import { UserContext } from '../layout'
+import { DummyUser } from '../type'
 
 function Copyright(props: any) {
     return (

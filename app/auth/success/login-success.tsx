@@ -1,6 +1,5 @@
 'use client'
 
-import { logout } from '@/web/auth'
 import { Button, Stack, Typography } from '@mui/material'
 import { useRouter } from 'next/navigation'
 import { useContext } from 'react'
