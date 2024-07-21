@@ -1,12 +1,11 @@
 'use client'
 
-import React from 'react'
-import SignInSide from './SignInSide'
+import SignIn from './sign-in'
 
 const Page = () => {
   return (
     <>
-      <SignInSide />
+      <SignIn />
     </>
   )
 }

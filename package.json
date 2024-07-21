@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "serve": "json-server ./mock/todos.js --port=4000 --middlewares ./mock/middleware.js",
+    "serve": "json-server ./mock/todos.cjs --port=4000 --middlewares ./mock/middleware.cjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

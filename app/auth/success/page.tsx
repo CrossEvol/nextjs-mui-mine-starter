@@ -1,6 +1,6 @@
 'use client'
 
-import LoginSuccess from './LoginSuccess'
+import LoginSuccess from './login-success'
 
 const Page = () => {
   return (

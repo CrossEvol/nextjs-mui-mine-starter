@@ -2,27 +2,32 @@
 
 import React, { createContext, PropsWithChildren, useState } from 'react'
 
-export const UserContext = createContext({
-  user: {} as User | undefined,
-  setUser: (() => {}) as React.Dispatch<React.SetStateAction<User | undefined>>,
+type UserContextProps = {
+    user: DummyUser | null | undefined
+    setUser: React.Dispatch<React.SetStateAction<DummyUser | undefined>>
+}
+
+export const UserContext = createContext<UserContextProps>({
+    user: null,
+    setUser: () => {},
 })
 
 type User = {
-  id: number
-  username: string
-  avatar: string
+    id: number
+    username: string
+    avatar: string
 }
 
 const Layout = ({ children }: PropsWithChildren) => {
-  const [user, setUser] = useState<User>()
+    const [user, setUser] = useState<DummyUser>()
 
-  return (
-    <>
-      <UserContext.Provider value={{ user, setUser }}>
-        {children}
-      </UserContext.Provider>
-    </>
-  )
+    return (
+        <>
+            <UserContext.Provider value={{ user, setUser }}>
+                {children}
+            </UserContext.Provider>
+        </>
+    )
 }
 
 export default Layout
