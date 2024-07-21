@@ -1,10 +1,9 @@
 // hidden-message.js
-import { ChildrenProps } from '@/types/ChildrenProps'
 import * as React from 'react'
 
 // NOTE: React Testing Library works well with React Hooks and classes.
 // Your tests will be the same regardless of how you write your components.
-function HiddenMessage({ children }: ChildrenProps) {
+function HiddenMessage({ children }: React.PropsWithChildren) {
   const [showMessage, setShowMessage] = React.useState(false)
   return (
     <div>

@@ -1,7 +1,6 @@
-import { ChildrenProps } from '@/types/ChildrenProps'
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
-const Layout = ({ children }: ChildrenProps) => {
+const Layout = ({ children }: PropsWithChildren) => {
   return <>{children}</>
 }
 

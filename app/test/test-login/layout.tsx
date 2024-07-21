@@ -1,7 +1,6 @@
 'use client'
 
-import { ChildrenProps } from '@/types/ChildrenProps'
-import React, { createContext, useState } from 'react'
+import React, { createContext, PropsWithChildren, useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
@@ -22,7 +21,7 @@ export const TestLoginContext = createContext<ContextProps>({
   updateData: (user: TestUser | null) => {},
 })
 
-const Layout = ({ children }: ChildrenProps) => {
+const Layout = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<TestUser | null>(null)
 
   return (

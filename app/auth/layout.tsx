@@ -1,7 +1,6 @@
 'use client'
 
-import { ChildrenProps } from '@/types/ChildrenProps'
-import React, { createContext, useState } from 'react'
+import React, { createContext, PropsWithChildren, useState } from 'react'
 
 export const UserContext = createContext({
   user: {} as User | undefined,
@@ -14,7 +13,7 @@ type User = {
   avatar: string
 }
 
-const Layout = ({ children }: ChildrenProps) => {
+const Layout = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<User>()
 
   return (

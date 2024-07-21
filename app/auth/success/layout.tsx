@@ -1,6 +1,6 @@
-import { ChildrenProps } from '@/types/ChildrenProps'
+import { PropsWithChildren } from "react"
 
-const Layout = ({ children }: ChildrenProps) => {
+const Layout = ({ children }: PropsWithChildren) => {
     return (
         <>
             <div className='flex h-96 w-96 items-center justify-center'>
